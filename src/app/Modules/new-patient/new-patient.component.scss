@@ -1,0 +1,32 @@
+.center_div{
+    margin: 0 auto;
+    width:55% /* value of your choice which suits your alignment */    
+}
+
+.center_div_form{
+    margin: 0 auto;
+    width:90%;
+}
+h6 {
+    width: 100%; 
+    text-align: center; 
+    border-bottom: 1px solid rgba(0, 0, 0, 0.342); 
+    line-height: 0.1em;
+    margin: 10px 0 20px; 
+ } 
+ 
+ h6 span { 
+     //background:#fff; 
+     background :black;
+     padding:0 10px; 
+ }
+
+ .theme-green .bs-datepicker-head {
+    // background-color: #5cb85c;
+    background-color: #007bff;
+}
+
+.required:after {
+    content:" *";
+    color: red;
+  }

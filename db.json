@@ -1,0 +1,113 @@
+{
+  "patients": [
+    {
+      "id": 1,
+      "salutation": "Miss",
+      "first_name": "Rajani",
+      "surname": "Jadhav",
+      "age": "33",
+      "mobile_number": 3456742344,
+      "email": "abc@xyz.com",
+      "gender": "Female",
+      "birth_date": "04/10/1986"
+    },
+    {
+      "salutation": "Miss",
+      "gender": "Female",
+      "first_name": "MS",
+      "surname": "Dhoni",
+      "mobile_number": "23",
+      "email": "332",
+      "id": 2
+    },
+    {
+      "salutation": "Mrs",
+      "gender": "Female",
+      "first_name": "Jane",
+      "surname": "Dove",
+      "mobile_number": "23",
+      "email": "332",
+      "id": 3
+    },
+    {
+      "salutation": "Mr",
+      "gender": "Male",
+      "first_name": "MS",
+      "surname": "Dhoni",
+      "mobile_number": "1782764534",
+      "email": "abc@xyz.com",
+      "id": 4
+    },
+    {
+      "salutation": "Miss",
+      "gender": "Female",
+      "first_name": "Jane",
+      "surname": "Dhoni",
+      "mobile_number": "1782764534",
+      "email": "abc@xyz.com",
+      "id": 5
+    },
+    {
+      "salutation": "Master",
+      "gender": "Male",
+      "first_name": "Jane",
+      "surname": "Dove",
+      "mobile_number": "1782764534",
+      "email": "abc@xyz.com",
+      "birth_date": "2009-02-18",
+      "age": "11",
+      "id": 6
+    }
+  ],
+  "address": [
+    {
+      "id": 1,
+      "address_line1": "abc",
+      "address_line2": "abc",
+      "landmark": "abc",
+      "street": "abc",
+      "city": "abc",
+      "pincode": 2345,
+      "state": "abc",
+      "country": "abc"
+    },
+    {
+      "landmark": "ZX",
+      "id": 2
+    },
+    {
+      "landmark": "ZX",
+      "id": 3
+    },
+    {
+      "landmark": "ZX",
+      "city": "Mumbai",
+      "state": "Maharashtra",
+      "country": "India",
+      "pincode": "234",
+      "id": 4
+    },
+    {
+      "address_line1": "aa",
+      "address_line2": "dsd",
+      "landmark": "ZX",
+      "street": "sd",
+      "city": "Mumbai",
+      "state": "Maharashtra",
+      "country": "India",
+      "pincode": "2323",
+      "id": 5
+    },
+    {
+      "address_line1": "aa",
+      "address_line2": "www",
+      "landmark": "ww",
+      "street": "aa",
+      "city": "Mumbai",
+      "state": "Maharashtra",
+      "country": "India",
+      "pincode": "234",
+      "id": 6
+    }
+  ]
+}

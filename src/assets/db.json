@@ -1,0 +1,27 @@
+{
+    "patients": [
+        {
+            "salutation":"Miss",    
+            "first_name": "Rajani",
+            "surname": "Jadhav",
+            "age": "33",
+            "mobile_number": "3456742344",
+            "email": "abc@xyz.com",
+            "gender":"Female",
+            "birth_date":"04/10/1986",
+            "address": [
+                {
+                    "address_line1": "abc",
+                    "address_line2": "abc",
+                    "landmark":"abc",
+                    "street":"abc",
+                    "city":"abc",
+                    "pincode":"2345",
+                    "state":"abc",
+                    "country":"abc"
+
+                }
+            ]
+        }
+    ]
+}

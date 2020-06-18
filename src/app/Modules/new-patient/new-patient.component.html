@@ -1,0 +1,175 @@
+<div class="card center_div mt-5 mb-sm-5">
+    <div class="card-header">
+        <h3>New Patient Form</h3>
+    </div>
+    <br>
+    <form class="center_div_form" name="form" (ngSubmit)="patientForm.form.valid && onSubmit(patientForm)"
+        #patientForm="ngForm">
+
+        <div class="form-row ">
+            <div class="form-group col-md-2">
+                <label for="salutation" class="required">Social Title</label>
+                <select class="form-control" id="salutation" placeholder="Title"
+                    (change)="setGender($event.target.value)" name="salutation" #salutation="ngModel"
+                    [(ngModel)]="patients.salutation"
+                    [ngClass]="{ 'is-invalid': (first_name.touched && first_name.invalid) }" required>
+                    <option value="undefined" disabled >Title</option>
+                    <option *ngFor=" let salutation of salutations" value={{salutation}}>{{salutation}}</option>
+                </select>
+                <div *ngIf="salutation.touched && salutation.invalid" class="invalid-feedback">
+                    <div *ngIf="salutation.errors.required">Title is required</div>
+                </div>
+            </div>
+            <div class="form-group col-md-5">
+                <label for="first_name" class="required">First Name</label>
+                <input type="text" name="first_name" #first_name="ngModel" class="form-control" id="first_name"
+                    placeholder="First Name" [ngClass]="{ 'is-invalid': (first_name.touched && first_name.invalid) }"
+                    [(ngModel)]="patients.first_name" required>
+                <div *ngIf="first_name.touched && first_name.invalid" class="invalid-feedback">
+                    <div *ngIf="first_name.errors.required">First Name is required</div>
+                </div>
+                <!-- <small class="invalid-feedback" *ngIf="!first_name.valid && first_name.touched">First Name required </small> -->
+            </div>
+            <div class="form-group col-md-5">
+                <label for="inputSurname3" class="required">Surname</label>
+                <input type="text" class="form-control" id="inputSurname4" name="surname" #surname="ngModel"
+                    [(ngModel)]="patients.surname" placeholder="Surname"
+                    [ngClass]="{ 'is-invalid': (surname.touched && surname.invalid) }" required>
+                <div *ngIf="surname.touched && surname.invalid" class="invalid-feedback">
+                    <div *ngIf="surname.errors.required">Surname is required</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label for="inputMobile4" class="required" >Mobile</label>
+                <input type="text" class="form-control" id="inputMobile4" placeholder="Mobile"
+                pattern="^\d{10}$"
+                name="mobile_number" #mobile_number="ngModel" [(ngModel)]="patients.mobile_number"
+                [ngClass]="{ 'is-invalid': (mobile_number.touched && mobile_number.invalid) }" required>
+                <div *ngIf="mobile_number.touched && mobile_number.invalid" class="invalid-feedback">
+                    <div *ngIf="mobile_number.errors.required">Mobile Number is required</div>
+                    <p *ngIf="mobile_number.errors.pattern">Mobile number should be 10 digit</p>
+                </div>
+            </div>
+            <div class="form-group col-md-6">
+                <label for="inputEmail5" class="required">Email</label>
+                <input type="email" class="form-control" id="inputEmail5" placeholder="Email"
+                pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
+                name="email" #email="ngModel" [(ngModel)]="patients.email"
+                [ngClass]="{ 'is-invalid': (email.touched && email.invalid) }" required>
+                <div *ngIf="email.touched && email.invalid" class="invalid-feedback">
+                    <p *ngIf="email.errors.required">Email is required</p>
+			<p *ngIf="email.errors.pattern">Email must contain email@gmail.com format</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-row">
+            <div class="col-md-4 form-group">
+                <label for="birth_date" class="required">Birth Date </label>
+                <input type="date" id="birth_date" [(ngModel)]="patients.birth_date" name="birth_date"  #birth_date="ngModel" placeholder="Datepicker"
+                    class="form-control" (ngModelChange)="calculateAge()"[ngClass]="{ 'is-invalid': (birth_date.touched && birth_date.invalid) }" required>
+                    <div *ngIf="birth_date.touched && birth_date.invalid" class="invalid-feedback">
+                        <div *ngIf="birth_date.errors.required">Email is required</div>
+                    </div>
+                <!-- bsDatepicker -->                
+            </div>
+            <div class="form-group col-md-4">
+                <label for="inputAge">Age</label>
+                <fieldset disabled>
+                    <input type="text" id="inputAge" placeholder="Age" class="form-control" [(ngModel)]=patients.age name="age">
+                    <!-- <select id="inputAge" class="form-control">
+                    <option selected>Choose...</option>
+                    <option>...</option>
+                </select> -->
+                </fieldset>
+            </div>
+            <div class="form-group col-md-4">
+                <label for="inputGender">Gender</label>
+                <fieldset disabled>
+                <input type="text" id="inputBirthDate" [(ngModel)]=patients.gender class="form-control" name="gender" placeholder="Gender">
+                <!-- <select id="inputGender" class="form-control">
+                    <option selected>Choose...</option>
+                    <option>...</option>
+                </select> -->
+            </fieldset>
+            </div>
+        </div>
+
+
+        <h6></h6>
+
+        <div class="form-group">
+            <label for="address_line1">Address Line 1</label>
+            <input type="text" class="form-control" id="address_line1" placeholder="1234 Main St"
+            name="address_line1" #address_line1="ngModel" [(ngModel)]="address.address_line1">
+        </div>
+        <div class="form-group">
+            <label for="address_line2">Address Line 2</label>
+            <input type="text" class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor"
+            name="address_line2" #address_line2="ngModel" [(ngModel)]="address.address_line2">
+        </div>
+
+        <div class="form-row">
+            <div class="form-group col-md-4">
+                <label for="inputLandmark" class="required" >Landmark</label>
+                <input type="text" class="form-control" placeholder="Landmark" id="inputLandmark" name="landmark" #landmark="ngModel" [(ngModel)]="address.landmark"
+                [ngClass]="{ 'is-invalid': (landmark.touched && landmark.invalid) }" required>
+                <div *ngIf="landmark.touched && landmark.invalid" class="invalid-feedback">
+                    <div *ngIf="landmark.errors.required">Landmark is required</div>
+                </div>
+            </div>
+
+            <div class="form-group col-md-4">
+                <label for="street">Street</label>
+                <input type="text" class="form-control" placeholder="Street" id="street"
+                name="street" #street="ngModel" [(ngModel)]="address.street">
+            </div>
+
+            <div class="form-group col-md-4">
+                <label for="city">City</label>
+                <select id="city" class="form-control"
+                 name="city" #city="ngModel" [(ngModel)]="address.city">
+                 <option value="undefined" disabled >City</option>
+                 <option *ngFor=" let city of citys" value={{city}}>{{city}}</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="form-row">
+            <div class="form-group col-md-4">
+                <label for="state">State</label>
+                <select id="state" class="form-control" name="state" #state="ngModel" [(ngModel)]="address.state">
+                    <option value="undefined" disabled >State</option>
+                    <option *ngFor=" let state of states" value={{state}}>{{state}}</option>
+                </select>
+            </div>
+            <div class="form-group col-md-4">
+                <label for="country">Country</label>
+                <select id="country" class="form-control" name="country" #country="ngModel" [(ngModel)]="address.country">
+                    <option value="undefined" disabled >Country</option>
+                    <option *ngFor=" let country of countrys" value={{country}}>{{country}}</option>
+                </select>
+            </div>
+            <div class="form-group col-md-4">
+                <label for="pincode">Pincode</label>
+                <input type="text" class="form-control" placeholder="Pincode" id="pincode" name="pincode" #pincode="ngModel" [(ngModel)]="address.pincode">
+            </div>
+        </div>
+
+
+
+        <button type="submit" [disabled]="patientForm.invalid" class="btn btn-primary">Sign in</button>
+    </form>
+    <br>
+    <!-- <script type="text/javascript">
+        $(function () {
+            $('#datetimepicker10').datetimepicker({
+                viewMode: 'years',
+                format: 'MM/YYYY'
+            });
+        });
+    </script> -->
+</div>
